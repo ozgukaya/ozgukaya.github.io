@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
+.navbar{
+    background:  #ffaa00 !important;
+}
+.navbar-brand{
+    color: #ffffff!important;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    
+}
+.navbar ul.navbar-nav li.nav-item .nav-link{
+    color:#000000;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    padding:15px;
+}
+
+.navbar ul.navbar-nav li.active {
+border-bottom:2px solid #000000;
+    
+}
+.carousel-caption{
+    top:50%!important;
+    font-family:'PT Sans', sans-serif;
+}
+.carousel-caption h3{
+    font-size: 70px !important;
+    text-shadow: 1px 1px 6px;
+    letter-spacing: 5px;
+
+}
+section#content1 .column1 p{
+    min-height: 259;
+    margin-top: 25px;
+}
+section#content1 .column1 p{
+    min-height: 259;
+    margin-top: 25px;
+}
+section#content1 .col-sm-12 h1{
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    color: coral;
+    margin-top: 30px;
+    font-size: 50px !important;
+    text-shadow: 1px 1px 1px;
+    
+    
+}
+section#content2 .col-sm-12 h1{
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    color: coral;
+    margin-top: 30px;
+    font-size: 50px !important;
+    text-shadow: 1px 1px 1px;
+    
+}
+section#content2 .col-sm-6 {
+  
+    font-family: 'PT Sans', sans-serif;
+    margin-top: 30px;
+    font-size: 20px !important;
+    
+    }
+section#content2 .column2 {
+    font-family: 'PT Sans', sans-serif;
+    min-height: 259;
+    margin-top: 25px;
+    margin-left: 100px;
+}
+section#content2 .column2 {
+    font-family: 'PT Sans', sans-serif;
+    min-height: 259;
+    margin-top: 25px;
+    margin-right: 100px;
+}
+section#content2 .column2 h2{
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px;
+}
+section#content3 .column3 {
+    
+    font-family: 'PT Sans', sans-serif;
+    margin: center;
+    text-align: center;
+    
+}
+section#content3 .column3 h3{
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px;
+    margin-top: 30px;
+    
+    
+}
+section#content4 .column4{
+
+    margin-top: 30px;
+        
+}
+section#content4 .column4 h4{
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px;
+   
+    
+}
+section#content5 .column5{
+    text-align: center;
+    margin-top: 30px;
+    
+
+   
+    
+}
+section#content5 .column5 h5{
+    
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px;
+    font-size: 50px;
+   
+    
+}
+section#content5 .main{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 50px;
+   
+   
+    
+}
+section#content5 .main2 {
+    margin-top: 30px;
+    text-align: center;
+   
+   
+    
+}
+section#content6 {
+    margin-top: 30px;
+    
+}
+section#content7 {
+    
+    margin-top:70px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px;
+    font-size: 50px;
+   
