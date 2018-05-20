@@ -1,59 +1,63 @@
-function formvalidation() {
-
-    var firstname = document.forms["RegForm"]["FirstName"];
-    var lastname = document.forms["RegForm"]["LastName"];   
-    var email = document.forms["RegForm"]["Email"];   
-    var birthdate = document.forms["RegForm"]["BirthDate"]; 
-    var password = document.forms["RegForm"]["Password"];
-    var letter = /^[a-zA-Z]+$/;
-    var passwordrgx = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}/;
-    var dateformat = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-    if (firstname.value == "" || (!firstname.value.match(letter)))                                   
-    {
-        window.alert("Please enter your name with only letters.");
-        firstname.focus();
-        return false;
-    }
-    
-   
-    if (lastname.value == ""  || (!lastname.value.match(letter)))                                 
-    {
-        window.alert("Please enter your lastname with only letters.");
-        lastname.focus();
-        return false;
-    }
-    if (email.value == "")                                  
-    {
-        window.alert("Please enter a valid e-mail address.");
-        email.focus();
-        return false;
-    }
-  
-    if (email.value.indexOf("@", 0) < 0)                
-    {
-        window.alert("Please enter a valid e-mail address.");
-        email.focus();
-        return false;
-    }
-  
-    if (email.value.indexOf(".", 0) < 0)                
-    {
-        window.alert("Please enter a valid e-mail address.");
-        email.focus();
-        return false;
-    }
-   if (!password.value.match(passwordrgx) )                       
-    {
-        window.alert("Please enter valid password");
-        password.focus();
-        return false;
-    }
-     if (!birthdate.value.match(dateformat) )                       
-    {
-        window.alert("Please enter valid date please dd/mm/yyyy");
-        password.focus();
-        return false;
-    }
-    
-   return true;
+function clearDisplay() {
+    var display = document.getElementById('display');
+    display.value = '0';
+    storedNum = '0';
+    calculationFinished = true;
+    operation = operations.none;
 }
+
+function clearPreviousResult() {
+    var display = document.getElementById('display');
+    if (calculationFinished) {
+        display.value = '0';
+        calculationFinished = false;
+    }
+}
+
+function numInput(digit) {
+    var display = document.getElementById('display');
+    clearPreviousResult();
+    // Get rid of a 0 if it's the only thing in there.
+    // This particular way of doing it lets you enter a 0 and have it show up,
+    // as well as leaving a 0 for the decimal point to snuggle up to.
+    if (display.value === '0') display.value = '';
+    display.value += digit;
+}
+
+function insertDecimal() {
+    var display = document.getElementById('display');
+    clearPreviousResult();
+    if (display.value.indexOf('.') === -1) display.value += '.';
+}
+
+operations = {
+    // no-op. Takes the right side, and just returns it.  Since the right side is the
+    // display value, and calculate() sets display.value, this effectively makes
+    // calculate() say "display.value = +display.value".
+    none:     function(left, right) { return right; },
+
+    // Math ops.
+    add:      function(left, right) { return left + right; },
+    subtract: function(left, right) { return left - right; },
+    multiply: function(left, right) { return left * right; }
+};
+
+function setOperation(command) {
+    var display = document.getElementById('display');
+    calculate();
+    storedNum = display.value;
+    if (operations.hasOwnProperty(command))
+        operation = operations[command];
+}
+
+function calculate() {
+    var display = document.getElementById('display');
+    display.value = operation(+storedNum, +display.value);
+    calculationFinished = true;
+    operation = operations.none;
+}
+
+if ('addEventListener' in window)
+    window.addEventListener('load', clearDisplay);
+else
+    window.attachEvent('onload', clearDisplay);
